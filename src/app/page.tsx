@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -39,30 +40,6 @@ export default function HomePage() {
     setFormData({ name: '', email: '', message: '' });
   };
 
-  const platforms = [
-    {
-      id: 'credlio',
-      name: 'Credlio',
-      description: 'Trust-based borrower reputation & lending system',
-      color: 'from-green-400 to-green-600',
-      initial: 'C',
-    },
-    {
-      id: 'tumalio',
-      name: 'Tumalio',
-      description: 'Freelance service marketplace',
-      color: 'from-purple-400 to-purple-600',
-      initial: 'T',
-    },
-    {
-      id: 'japride',
-      name: 'JapRide',
-      description: 'Smart Japan car import platform',
-      color: 'from-red-400 to-red-600',
-      initial: 'J',
-    },
-  ];
-
   const values = [
     'Secure & scalable SaaS solutions built with modern technology',
     'Multi-market product strategy for maximum impact',
@@ -83,9 +60,6 @@ export default function HomePage() {
             <div className="hidden space-x-8 md:flex">
               <a href="#about" className="text-gray-700 transition hover:text-blue-600">
                 About
-              </a>
-              <a href="#platforms" className="text-gray-700 transition hover:text-blue-600">
-                Platforms
               </a>
               <a href="#why-ortios" className="text-gray-700 transition hover:text-blue-600">
                 Why Ortios
@@ -111,9 +85,6 @@ export default function HomePage() {
               <a href="#about" className="block px-3 py-2 text-gray-700 hover:text-blue-600">
                 About
               </a>
-              <a href="#platforms" className="block px-3 py-2 text-gray-700 hover:text-blue-600">
-                Platforms
-              </a>
               <a href="#why-ortios" className="block px-3 py-2 text-gray-700 hover:text-blue-600">
                 Why Ortios
               </a>
@@ -136,8 +107,8 @@ export default function HomePage() {
           </p>
           <div className="flex flex-col justify-center gap-4 sm:flex-row">
             <Button size="lg" className="inline-flex items-center" asChild>
-              <a href="#platforms">
-                Explore Platforms
+              <a href="#why-ortios">
+                Learn More
                 <ChevronRight className="ml-2 h-5 w-5" />
               </a>
             </Button>
@@ -169,37 +140,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Our Platforms Section */}
-      <section id="platforms" className="bg-gray-50 px-4 py-16 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-7xl">
-          <h2 className="mb-12 text-center text-3xl font-bold text-gray-900 md:text-4xl">
-            Our Platforms
-          </h2>
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-            {platforms.map((platform) => (
-              <Card key={platform.id} className="transition hover:shadow-xl">
-                <CardHeader>
-                  <div
-                    className={`mb-4 flex h-16 w-16 items-center justify-center rounded-lg bg-gradient-to-br ${platform.color}`}
-                  >
-                    <span className="text-2xl font-bold text-white">{platform.initial}</span>
-                  </div>
-                  <CardTitle className="text-2xl">{platform.name}</CardTitle>
-                  <CardDescription>{platform.description}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <Button variant="link" className="p-0" asChild>
-                    <a href="#" className="inline-flex items-center">
-                      Visit
-                      <ChevronRight className="ml-1 h-4 w-4" />
-                    </a>
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Why Ortios Section */}
       <section id="why-ortios" className="bg-white px-4 py-16 sm:px-6 lg:px-8">
@@ -303,12 +243,12 @@ export default function HomePage() {
               <p className="text-sm">© 2025 Ortios LLC. All rights reserved.</p>
             </div>
             <div className="mb-4 flex space-x-6 md:mb-0">
-              <a href="#" className="text-sm transition hover:text-blue-400">
+              <Link href="/privacy" className="text-sm transition hover:text-blue-400">
                 Privacy Policy
-              </a>
-              <a href="#" className="text-sm transition hover:text-blue-400">
+              </Link>
+              <Link href="/terms" className="text-sm transition hover:text-blue-400">
                 Terms
-              </a>
+              </Link>
             </div>
             <div className="flex space-x-4">
               <a href="#" className="transition hover:text-blue-400">
